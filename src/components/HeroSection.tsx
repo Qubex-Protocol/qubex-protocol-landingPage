@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Zap, Network, Activity } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import quantumHeroBg from "@/assets/quantum-hero-bg.jpg";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const HeroSection = () => {
   return (
@@ -12,11 +12,16 @@ const HeroSection = () => {
         <ThemeToggle />
       </div>
       
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: `url(${quantumHeroBg})` }}
-      />
+      {/* Background Animation */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <DotLottieReact
+          src="https://lottie.host/0149e876-1332-4071-9afe-95abc3b13ef5/jHuXHhF5ab.lottie"
+          loop
+          autoplay
+          className="w-500 h-full"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
       
       {/* Quantum Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -24,9 +29,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Status Badge */}
-        <Badge variant="secondary" className="mb-8 px-6 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20 quantum-glow">
+        <Badge variant="outline" className="mb-8 px-6 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20 quantum-glow">
           <Activity className="w-4 h-4 mr-2" />
-          Production Ready • Quantum Secure
+          Upcoming production • Quantum Secure
         </Badge>
         
         {/* Main Heading */}
