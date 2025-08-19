@@ -71,12 +71,16 @@ const HeroSection = () => {
         
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground px-8 py-3 quantum-glow">
-            Launch Platform
-          </Button>
-          <Button variant="outline" size="lg" className="border-primary/40 text-primary hover:bg-primary/15 px-8 py-3">
-            View Documentation
-          </Button>
+          <a href="/WaitList">
+            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground px-8 py-3 quantum-glow">
+              Launch Platform
+            </Button>
+          </a>
+          <a href="/ComingSoonPage">
+            <Button variant="outline" size="lg" className="border-primary/40 text-primary hover:bg-primary/15 px-8 py-3">
+              View Documentation
+            </Button>
+          </a>
         </div>
       </div>
       

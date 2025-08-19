@@ -85,7 +85,7 @@ reveal_transaction(hash: String, tx: PolyTransaction)`
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-6 px-4 py-2 bg-primary/10 text-primary border-primary/20">
+          <Badge variant="default" className="mb-6 px-4 py-2 bg-primary/10 text-primary border-primary/20">
             <Terminal className="w-4 h-4 mr-2" />
             Technical Specifications
           </Badge>
@@ -178,16 +178,18 @@ reveal_transaction(hash: String, tx: PolyTransaction)`
         {/* Quick Start Section */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold mb-6 text-foreground">Ready to Build?</h3>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground px-8">
-              <Terminal className="w-4 h-4 mr-2" />
-              Quick Start Guide
-            </Button>
-            <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/10 px-8">
-              <GitBranch className="w-4 h-4 mr-2" />
-              View Repository
-            </Button>
-          </div>
+          <a href="/ComingSoonPage">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground px-8">
+                <Terminal className="w-4 h-4 mr-2" />
+                Quick Start Guide
+              </Button>
+              <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/10 px-8">
+                <GitBranch className="w-4 h-4 mr-2" />
+                View Repository
+              </Button>
+            </div>
+          </a>
         </div>
       </div>
     </section>

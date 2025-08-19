@@ -63,9 +63,9 @@ const StatusSection = () => {
         return "bg-primary/20 text-primary border-primary/30";
       case "ADVANCED":
       case "ENTERPRISE-READY":
-        return "bg-accent/20 text-accent border-accent/30";
+        return "bg-primary/20 text-primary border-primary/30";
       case "IN DEVELOPMENT":
-        return "bg-secondary/20 text-secondary border-secondary/30";
+        return "bg-primary/20 text-primary border-primary/30";
       default:
         return "bg-muted/20 text-muted-foreground border-muted/30";
     }
@@ -74,7 +74,7 @@ const StatusSection = () => {
   const getProgressColor = (progress: number) => {
     if (progress === 100) return "bg-primary";
     if (progress >= 80) return "bg-accent";
-    return "bg-secondary";
+    return "bg-accent";
   };
 
   return (

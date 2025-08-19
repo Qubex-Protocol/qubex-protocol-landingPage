@@ -18,7 +18,7 @@ const MetricsSection = () => {
       description: "MEV attack prevention rate",
       icon: Shield,
       trend: "Industry leading",
-      color: "text-accent"
+      color: "text-primary"
     },
     {
       title: "Transaction Finality",
@@ -26,7 +26,7 @@ const MetricsSection = () => {
       description: "Sub-second finality achieved",
       icon: Clock,
       trend: "Real-time processing",
-      color: "text-secondary"
+      color: "text-primary"
     },
     {
       title: "Multi-Chain Support",
@@ -42,7 +42,7 @@ const MetricsSection = () => {
       description: "Lines of production Rust code",
       icon: Target,
       trend: "Zero warnings",
-      color: "text-accent"
+      color: "text-primary"
     },
     {
       title: "Test Coverage",
@@ -50,7 +50,7 @@ const MetricsSection = () => {
       description: "Comprehensive test suite",
       icon: Zap,
       trend: "All critical systems",
-      color: "text-secondary"
+      color: "text-primary"
     }
   ];
 
@@ -66,7 +66,7 @@ const MetricsSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-6 px-4 py-2 bg-accent/10 text-accent border-accent/20">
+          <Badge variant="default" className="mb-6 px-4 py-2 bg-primary/10 text-primary border-primary/20">
             <TrendingUp className="w-4 h-4 mr-2" />
             Real-Time Metrics
           </Badge>
@@ -139,11 +139,11 @@ const MetricsSection = () => {
                   <div className="text-sm text-muted-foreground">Production-ready infrastructure with zero compilation warnings</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent mb-2">Quantum-Secure</div>
+                  <div className="text-2xl font-bold text-primary mb-2">Quantum-Secure</div>
                   <div className="text-sm text-muted-foreground">NIST-approved post-quantum cryptography implemented</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-secondary mb-2">Multi-Chain</div>
+                  <div className="text-2xl font-bold text-primary mb-2">Multi-Chain</div>
                   <div className="text-sm text-muted-foreground">Native integration without bridge security risks</div>
                 </div>
               </div>

@@ -25,9 +25,8 @@ const RoadmapSection = () => {
     {
       phase: "Phase 2",
       title: "Zero-Knowledge & Privacy",
-      status: "IN PROGRESS",
       quarter: "Q4 2024",
-      progress: 35,
+      progress: 30,
       icon: Brain,
       description: "Privacy-preserving transaction validation and ZK proofs",
       achievements: [
@@ -41,7 +40,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 3",
       title: "Scalability & Performance",
-      status: "PLANNED",
       quarter: "Q1 2025",
       progress: 0,
       icon: Zap,
@@ -57,7 +55,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 4",
       title: "Enterprise & Ecosystem",
-      status: "PLANNED",
       quarter: "Q2 2025",
       progress: 0,
       icon: Network,
@@ -73,7 +70,6 @@ const RoadmapSection = () => {
     {
       phase: "Phase 5",
       title: "Tokenomics & Network Effects",
-      status: "PLANNED",
       quarter: "Q3 2025",
       progress: 0,
       icon: Rocket,
@@ -114,12 +110,35 @@ const RoadmapSection = () => {
     }
   };
 
+  // Compute dynamic statuses: all before the first non-100% are COMPLETED,
+  // the first non-100% is IN PROGRESS, the rest are PLANNED
+  const firstNotCompleteIndex = phases.findIndex((p) => p.progress < 100);
+  const computedPhases = phases.map((p, i) => {
+    let computedStatus: string;
+    if (firstNotCompleteIndex === -1) {
+      computedStatus = "COMPLETED";
+    } else if (i < firstNotCompleteIndex) {
+      computedStatus = "COMPLETED";
+    } else if (i === firstNotCompleteIndex) {
+      computedStatus = "IN PROGRESS";
+    } else {
+      computedStatus = "PLANNED";
+    }
+    return { ...p, computedStatus } as typeof p & { computedStatus: string };
+  });
+
+  // Colored line ratio: completed phases + fraction of current progress
+  const completedCount = computedPhases.filter((p) => p.computedStatus === "COMPLETED").length;
+  const currentPhase = computedPhases[completedCount];
+  const currentFraction = currentPhase ? Math.max(0, Math.min(1, currentPhase.progress / 100)) : 0;
+  const coloredRatio = (completedCount + currentFraction) / computedPhases.length;
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-6 px-4 py-2 bg-secondary/10 text-secondary border-secondary/20">
+          <Badge variant="default" className="mb-6 px-4 py-2 bg-primary/10 text-primary border-primary/20">
             <Calendar className="w-4 h-4 mr-2" />
             Development Roadmap
           </Badge>
@@ -136,12 +155,26 @@ const RoadmapSection = () => {
         <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-secondary opacity-30 hidden lg:block" />
+          {/* Colored progression overlay */}
+          <div
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary/70 hidden lg:block"
+            style={{ height: `${Math.min(100, Math.max(0, coloredRatio * 100))}%` }}
+          />
           
           <div className="space-y-12">
-            {phases.map((phase, index) => (
+            {computedPhases.map((phase, index) => (
               <div key={index} className={`relative flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                 {/* Timeline Marker */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-card border-2 border-primary rounded-full z-10 hidden lg:block" />
+                <div
+                  className={
+                    `absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full z-10 hidden lg:block border-2 ` +
+                    (phase.computedStatus === 'COMPLETED'
+                      ? 'bg-primary border-primary'
+                      : phase.computedStatus === 'IN PROGRESS'
+                        ? 'bg-accent border-accent'
+                        : 'bg-card border-border')
+                  }
+                />
                 
                 {/* Content Card */}
                 <div className="flex-1 max-w-2xl">
@@ -155,12 +188,12 @@ const RoadmapSection = () => {
                             <CardTitle className="text-xl font-bold">{phase.title}</CardTitle>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <Badge className={getStatusColor(phase.status)}>
-                            {getStatusIcon(phase.status)}
-                            <span className="ml-1">{phase.status}</span>
+                        <div className="text-center">
+                          <Badge className={getStatusColor(phase.computedStatus)}>
+                            {getStatusIcon(phase.computedStatus)}
+                            <span className="ml-1">{phase.computedStatus}</span>
                           </Badge>
-                          <div className="text-sm text-muted-foreground mt-1">{phase.quarter}</div>
+                          <div className="text-sm text-muted-foreground mt-2">{phase.quarter}</div>
                         </div>
                       </div>
                       <p className="text-muted-foreground">{phase.description}</p>
