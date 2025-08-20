@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import sgMail from '@sendgrid/mail';
 
 export default async function handler(req, res) {
   
@@ -15,30 +15,24 @@ export default async function handler(req, res) {
     }
 
     // Vérification des variables d'environnement
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD || !process.env.TO_EMAIL) {
+    if (!process.env.SENDGRID_API_KEY || !process.env.TO_EMAIL || !process.env.FROM_EMAIL) {
       console.error('Variables d\'environnement manquantes:', {
-        EMAIL_USER: !!process.env.EMAIL_USER,
-        EMAIL_PASSWORD: !!process.env.EMAIL_PASSWORD,
-        TO_EMAIL: !!process.env.TO_EMAIL
+        SENDGRID_API_KEY: !!process.env.SENDGRID_API_KEY,
+        TO_EMAIL: !!process.env.TO_EMAIL,
+        FROM_EMAIL: !!process.env.FROM_EMAIL
       });
       return res.status(500).json({ 
-        error: 'Configuration email manquante' 
+        error: 'Configuration SendGrid manquante' 
       });
     }
 
-    // config email
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
+    // Configuration SendGrid
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     // Options email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    const msg = {
       to: process.env.TO_EMAIL,
+      from: process.env.FROM_EMAIL,
       subject: 'Nouvelle inscription Qubex Protocol',
       text: `Nouvelle inscription à la liste d'attente: ${email}`,
       html: `
@@ -56,10 +50,10 @@ export default async function handler(req, res) {
       `,
     };
 
-    // Mail send
-    await transporter.sendMail(mailOptions);
+    // Envoi de l'email
+    await sgMail.send(msg);
 
-    // Anwser
+    // Réponse
     res.status(200).json({ 
       success: true, 
       message: 'Email envoyé avec succès' 
@@ -69,11 +63,8 @@ export default async function handler(req, res) {
     console.error('Erreur lors de l\'envoi de l\'email:', error);
     
     // Log plus détaillé pour le debugging
-    if (error.code) {
-      console.error('Code d\'erreur:', error.code);
-    }
     if (error.response) {
-      console.error('Réponse d\'erreur:', error.response);
+      console.error('Réponse d\'erreur SendGrid:', error.response.body);
     }
     
     res.status(500).json({ 
