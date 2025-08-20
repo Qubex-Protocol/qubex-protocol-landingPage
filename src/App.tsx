@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import WaitList from "./pages/WaitList";
+import { Analytics } from "@vercel/analytics/react"
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <Analytics />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
