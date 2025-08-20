@@ -1,5 +1,6 @@
 // Configuration EmailJS
-// Utilisation des variables d'environnement pour la sécurité
+// ⚠️ WARNING: EmailJS works on the client side, so IDs remain visible in requests.
+// For true security, use a backend solution (see VERCEL_DEPLOYMENT.md).
 
 export const EMAILJS_CONFIG = {
   SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
@@ -10,6 +11,5 @@ export const EMAILJS_CONFIG = {
 
 // Initialisation d'EmailJS
 export const initEmailJS = () => {
-  // EmailJS sera initialisé automatiquement avec la clé publique
-  // Vous pouvez aussi utiliser emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY) si nécessaire
+
 };

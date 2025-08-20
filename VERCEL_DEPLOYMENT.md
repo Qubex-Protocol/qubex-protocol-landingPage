@@ -13,7 +13,7 @@
 1. Go to [Google Account Settings](https://myaccount.google.com/)
 2. Enable **2-factor authentication**
 3. Generate an **application password** :
-   - Security → Google Sign-in → App passwords
+   - Security → Google Sign-in → App passwords or https://myaccount.google.com/apppasswords
    - Select "Other" and name it "Qubex Protocol"
    - Copy the generated password
 
