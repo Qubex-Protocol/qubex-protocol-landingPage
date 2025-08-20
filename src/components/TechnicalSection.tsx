@@ -31,7 +31,7 @@ const TechnicalSection = () => {
     },
     {
       component: "Compression",
-      implementation: "ZSTD + adaptive algorithms",
+      implementation: "ZSTD + L74 + adaptive algorithms",
       status: "Production",
       icon: Code
     },
@@ -186,7 +186,7 @@ reveal_transaction(hash: String, tx: PolyTransaction)`
               </Button>
               <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/10 px-8">
                 <GitBranch className="w-4 h-4 mr-2" />
-                View Repository
+                White Paper
               </Button>
             </div>
           </a>

@@ -33,20 +33,21 @@ const WaitList = () => {
     setIsLoading(true);
     
     try {
-      const templateParams = {
-        to_email: EMAILJS_CONFIG.TO_EMAIL,
-        email: data.email,        
-        reply_to: data.email,  
-        message: `Nouvelle inscription à la liste d'attente: ${data.email}`,
-        subject: "Nouvelle inscription Qubex Protocol",
-      };
+      // API Vercel Function (sécurisée)
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: data.email,
+        }),
+      });
 
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
-        templateParams,
-        EMAILJS_CONFIG.PUBLIC_KEY
-      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send email');
+      }
       
       toast.success("Email sent successfully! You are now on the waiting list.");
       reset();
@@ -83,7 +84,7 @@ const WaitList = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/90 mb-4 max-w-4xl mx-auto leading-relaxed">
-          Welcome to the waitlist, <span className="text-primary font-semibold">Qubex Protocol !</span> <br /><br /> If you would like to participate in the beta version from the start, you are welcome to do so. We will keep you informed of the project's progress until the launch of the beta version.
+          Welcome to the waitlist <br /><span className="text-primary font-semibold">Qubex Protocol !</span> <br /><br /> If you would like to participate in the beta version from the start, you are welcome to do so. We will keep you informed of the project's progress until the launch of the beta version.
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-4">
           {/* Status Badge */}

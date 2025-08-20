@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, Shield, Zap, Network, Clock, Target } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const MetricsSection = () => {
   const metrics = [
@@ -81,51 +82,55 @@ const MetricsSection = () => {
         {/* Live Status Indicators */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {liveData.map((item, index) => (
-            <Card key={index} className="bg-card/30 backdrop-blur-sm border-border/50">
-              <CardContent className="pt-4 text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse mr-2" />
-                  <span className="text-xs text-muted-foreground">{item.label}</span>
-                </div>
-                <div className="text-sm font-semibold text-primary">{item.value}</div>
-              </CardContent>
-            </Card>
+            <Reveal key={index} delayMs={index * 80}>
+              <Card className="bg-card/30 backdrop-blur-sm border-border/50">
+                <CardContent className="pt-4 text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse mr-2" />
+                    <span className="text-xs text-muted-foreground">{item.label}</span>
+                  </div>
+                  <div className="text-sm font-semibold text-primary">{item.value}</div>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {metrics.map((metric, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-border/50 quantum-glow">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between">
-                  <metric.icon className={`w-8 h-8 ${metric.color}`} />
-                  <Badge variant="outline" className="text-xs border-primary/30 text-primary">
-                    LIVE
-                  </Badge>
-                </div>
-              </CardHeader>
-              
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <div className={`text-3xl font-bold ${metric.color} mb-1`}>
-                      {metric.value}
+            <Reveal key={index} delayMs={index * 100}>
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 quantum-glow">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between">
+                    <metric.icon className={`w-8 h-8 ${metric.color}`} />
+                    <Badge variant="outline" className="text-xs border-primary/30 text-primary">
+                      LIVE
+                    </Badge>
+                  </div>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="space-y-4">
+                    <div>
+                      <div className={`text-3xl font-bold ${metric.color} mb-1`}>
+                        {metric.value}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {metric.description}
+                      </div>
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      {metric.description}
+                    
+                    <div className="flex items-center">
+                      <TrendingUp className="w-4 h-4 text-primary mr-2" />
+                      <span className="text-xs text-primary font-medium">
+                        {metric.trend}
+                      </span>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center">
-                    <TrendingUp className="w-4 h-4 text-primary mr-2" />
-                    <span className="text-xs text-primary font-medium">
-                      {metric.trend}
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
 

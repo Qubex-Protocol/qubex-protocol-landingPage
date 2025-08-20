@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, Clock, Zap, Shield, Network, Code, Brain, Rocket } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const StatusSection = () => {
   const implementations = [
@@ -31,8 +32,8 @@ const StatusSection = () => {
     },
     {
       title: "Transaction Processing",
-      status: "ADVANCED",
-      progress: 95,
+      status: "PRODUCTION-READY",
+      progress: 100,
       icon: Code,
       description: "VRF-powered fair sequencing with sub-second finality",
       features: ["Fair sequencing", "Batch optimization", "ZSTD compression", "Performance monitoring"]
@@ -77,6 +78,14 @@ const StatusSection = () => {
     return "bg-accent";
   };
 
+  // Calculer le pourcentage global basé sur les progressions individuelles
+  const calculateOverallProgress = () => {
+    const totalProgress = implementations.reduce((sum, impl) => sum + impl.progress, 0);
+    return Math.round(totalProgress / implementations.length);
+  };
+
+  const overallProgress = calculateOverallProgress();
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -94,45 +103,47 @@ const StatusSection = () => {
         {/* Implementation Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {implementations.map((impl, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/70 transition-all duration-300 group">
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between mb-4">
-                  <impl.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-                  <Badge className={getStatusColor(impl.status)}>
-                    {impl.progress === 100 ? <CheckCircle className="w-3 h-3 mr-1" /> : <Clock className="w-3 h-3 mr-1" />}
-                    {impl.status}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl font-bold">{impl.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">{impl.description}</p>
-              </CardHeader>
-              
-              <CardContent>
-                {/* Progress Bar */}
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">Progress</span>
-                    <span className="text-sm text-muted-foreground">{impl.progress}%</span>
+            <Reveal key={index} delayMs={index * 120}>
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/70 transition-all duration-300 group">
+                <CardHeader className="pb-4">
+                  <div className="flex items-start justify-between mb-4">
+                    <impl.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                    <Badge className={getStatusColor(impl.status)}>
+                      {impl.progress === 100 ? <CheckCircle className="w-3 h-3 mr-1" /> : <Clock className="w-3 h-3 mr-1" />}
+                      {impl.status}
+                    </Badge>
                   </div>
-                  <div className="w-full bg-muted/30 rounded-full h-2 overflow-hidden">
-                    <div 
-                      className={`h-full transition-all duration-1000 ease-out ${getProgressColor(impl.progress)}`}
-                      style={{ width: `${impl.progress}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* Features List */}
-                <div className="space-y-2">
-                  {impl.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center text-sm">
-                      <div className="w-1 h-1 bg-primary rounded-full mr-3" />
-                      <span className="text-muted-foreground">{feature}</span>
+                  <CardTitle className="text-xl font-bold">{impl.title}</CardTitle>
+                  <p className="text-sm text-muted-foreground">{impl.description}</p>
+                </CardHeader>
+                
+                <CardContent>
+                  {/* Progress Bar */}
+                  <div className="mb-6">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium">Progress</span>
+                      <span className="text-sm text-muted-foreground">{impl.progress}%</span>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    <div className="w-full bg-muted/30 rounded-full h-2 overflow-hidden">
+                      <div 
+                        className={`h-full transition-all duration-1000 ease-out ${getProgressColor(impl.progress)}`}
+                        style={{ width: `${impl.progress}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="space-y-2">
+                    {impl.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center text-sm">
+                        <div className="w-1 h-1 bg-primary rounded-full mr-3" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
         
@@ -140,10 +151,10 @@ const StatusSection = () => {
         <div className="mt-16 text-center">
           <Card className="bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 border-primary/20 max-w-2xl mx-auto">
             <CardContent className="pt-8">
-              <div className="text-3xl font-bold text-primary mb-2">78%</div>
+              <div className="text-3xl font-bold text-primary mb-2">{overallProgress}%</div>
               <div className="text-lg text-muted-foreground mb-4">Overall Platform Completion</div>
               <div className="w-full bg-muted/30 rounded-full h-3 overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-2000 ease-out" style={{ width: "78%" }} />
+                <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-2000 ease-out" style={{ width: `${overallProgress}%` }} />
               </div>
             </CardContent>
           </Card>

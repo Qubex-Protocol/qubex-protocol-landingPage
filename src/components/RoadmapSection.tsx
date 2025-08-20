@@ -8,7 +8,7 @@ const RoadmapSection = () => {
       phase: "Phase 1",
       title: "Foundation",
       status: "COMPLETED",
-      quarter: "Q3 2024",
+      quarter: "Q3 2025",
       progress: 100,
       icon: Shield,
       description: "Core infrastructure and quantum-ready foundation",
@@ -25,7 +25,7 @@ const RoadmapSection = () => {
     {
       phase: "Phase 2",
       title: "Zero-Knowledge & Privacy",
-      quarter: "Q4 2024",
+      quarter: "Q3 2025",
       progress: 30,
       icon: Brain,
       description: "Privacy-preserving transaction validation and ZK proofs",
@@ -40,7 +40,7 @@ const RoadmapSection = () => {
     {
       phase: "Phase 3",
       title: "Scalability & Performance",
-      quarter: "Q1 2025",
+      quarter: "Q3 2025",
       progress: 0,
       icon: Zap,
       description: "High-performance transaction processing and sharding",
@@ -55,7 +55,7 @@ const RoadmapSection = () => {
     {
       phase: "Phase 4",
       title: "Enterprise & Ecosystem",
-      quarter: "Q2 2025",
+      quarter: "Q4 2025",
       progress: 0,
       icon: Network,
       description: "Enterprise features and ecosystem expansion",
@@ -70,12 +70,12 @@ const RoadmapSection = () => {
     {
       phase: "Phase 5",
       title: "Tokenomics & Network Effects",
-      quarter: "Q3 2025",
+      quarter: "Q4 2025",
       progress: 0,
       icon: Rocket,
       description: "Token launch and economic incentive alignment",
       achievements: [
-        "POLY token launch & staking",
+        "Q token launch & staking",
         "MEV reward sharing mechanisms",
         "Ecosystem partnership integrations",
         "Liquidity mining programs",

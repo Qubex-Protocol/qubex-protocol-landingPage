@@ -1,11 +1,11 @@
 // Configuration EmailJS
-// Remplacez ces valeurs par vos propres clés EmailJS
+// Utilisation des variables d'environnement pour la sécurité
 
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_fufn49h", // Remplacez par votre nouveau Service ID Outlook
-  TEMPLATE_ID: "template_ihwrqtq", // Votre Template ID
-  PUBLIC_KEY: "R2o6TQ5u0tB6gK7BB", // Votre Public Key
-  TO_EMAIL: "qubexprotocol@gmail.com", // L'email où vous voulez recevoir les inscriptions
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "",
+  TO_EMAIL: import.meta.env.VITE_EMAILJS_TO_EMAIL || "",
 };
 
 // Initialisation d'EmailJS
