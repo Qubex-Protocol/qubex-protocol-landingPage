@@ -14,6 +14,18 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Email invalide' });
     }
 
+    // Vérification des variables d'environnement
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD || !process.env.TO_EMAIL) {
+      console.error('Variables d\'environnement manquantes:', {
+        EMAIL_USER: !!process.env.EMAIL_USER,
+        EMAIL_PASSWORD: !!process.env.EMAIL_PASSWORD,
+        TO_EMAIL: !!process.env.TO_EMAIL
+      });
+      return res.status(500).json({ 
+        error: 'Configuration email manquante' 
+      });
+    }
+
     // config email
     const transporter = nodemailer.createTransporter({
       service: 'gmail',
@@ -55,8 +67,18 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Erreur lors de l\'envoi de l\'email:', error);
+    
+    // Log plus détaillé pour le debugging
+    if (error.code) {
+      console.error('Code d\'erreur:', error.code);
+    }
+    if (error.response) {
+      console.error('Réponse d\'erreur:', error.response);
+    }
+    
     res.status(500).json({ 
-      error: 'Erreur lors de l\'envoi de l\'email' 
+      error: 'Erreur lors de l\'envoi de l\'email',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 }
