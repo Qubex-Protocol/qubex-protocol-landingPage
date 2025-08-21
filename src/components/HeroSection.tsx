@@ -76,7 +76,7 @@ const HeroSection = () => {
               Launch Platform
             </Button>
           </a>
-          <a href="/ComingSoonPage">
+          <a href="https://qubex-protocol.gitbook.io/qubex-protocol-docs/">
             <Button variant="outline" size="lg" className="border-primary/40 text-primary hover:bg-primary/15 px-8 py-3">
               View Documentation
             </Button>

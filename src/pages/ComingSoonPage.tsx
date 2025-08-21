@@ -1,27 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Zap, Network, Activity } from "lucide-react";
+import { Activity, ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useNavigate } from "react-router-dom";
 
 const ComingSoonPage = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Back Arrow */}
+      <div className="absolute top-12 left-12 z-20">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => navigate("/")}
+          className="h-10 w-10 p-0 hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
+      </div>      
       {/* Theme Toggle */}
       <div className="absolute top-2 right-5 z-20">
         <ThemeToggle />
       </div>
-      
-      {/* Background Animation */}
-      {/* <div className="absolute inset-0 opacity-20 dark:opacity-30 pointer-events-none">
-        <DotLottieReact
-          src="https://lottie.host/0149e876-1332-4071-9afe-95abc3b13ef5/jHuXHhF5ab.lottie"
-          loop
-          autoplay
-          className="w-500 h-full"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div> */}
       
       {/* Quantum Grid Overlay */}
       <div className="absolute inset-0 block dark:hidden bg-[linear-gradient(rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:50px_50px]" />

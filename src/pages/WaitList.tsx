@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowLeft } from "lucide-react";
 import { EMAILJS_CONFIG } from "@/config/emailjs";
+import { useNavigate } from "react-router-dom";
 
 // Schéma de validation pour l'email
 const emailSchema = z.object({
@@ -19,6 +20,7 @@ type EmailFormData = z.infer<typeof emailSchema>;
 
 const WaitList = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   
   const {
     register,
@@ -33,21 +35,20 @@ const WaitList = () => {
     setIsLoading(true);
     
     try {
-      // API Vercel Function (sécurisée)
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: data.email,
-        }),
-      });
+      const templateParams = {
+        to_email: EMAILJS_CONFIG.TO_EMAIL,
+        email: data.email,        
+        reply_to: data.email,  
+        message: `New registration on the waiting list: ${data.email}`,
+        subject: "New registration Qubex Protocol",
+      };
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to send email');
-      }
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
       
       toast.success("Email sent successfully! You are now on the waiting list.");
       reset();
@@ -61,22 +62,23 @@ const WaitList = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Back Arrow */}
+      <div className="absolute top-12 left-12 z-20">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => navigate("/")}
+          className="h-10 w-10 p-0 hover:bg-primary/10 text-foreground/80 hover:text-primary transition-colors"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
+      </div>
+      
       {/* Theme Toggle */}
       <div className="absolute top-2 right-5 z-20">
         <ThemeToggle />
       </div>
-      
-      {/* Background Animation */}
-      {/* <div className="absolute inset-0 opacity-20 dark:opacity-30 pointer-events-none">
-        <DotLottieReact
-          src="https://lottie.host/0149e876-1332-4071-9afe-95abc3b13ef5/jHuXHhF5ab.lottie"
-          loop
-          autoplay
-          className="w-500 h-full"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div> */}
-      
+            
       {/* Quantum Grid Overlay */}
       <div className="absolute inset-0 block dark:hidden bg-[linear-gradient(rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:50px_50px]" />
       <div className="absolute inset-0 hidden dark:block bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -84,7 +86,7 @@ const WaitList = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/90 mb-4 max-w-4xl mx-auto leading-relaxed">
-          Welcome to the waitlist <br /><span className="text-primary font-semibold">Qubex Protocol !</span> <br /><br /> If you would like to participate in the beta version from the start, you are welcome to do so. We will keep you informed of the project's progress until the launch of the beta version.
+          Welcome to the waitlist, <span className="text-primary font-semibold">Qubex Protocol !</span> <br /><br /> If you would like to participate in the beta version from the start, you are welcome to do so. We will keep you informed of the project's progress until the launch of the beta version.
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-4">
           {/* Status Badge */}
