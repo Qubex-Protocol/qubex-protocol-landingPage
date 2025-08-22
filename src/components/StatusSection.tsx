@@ -7,28 +7,28 @@ import Reveal from "@/components/Reveal";
 const StatusSection = () => {
   const implementations = [
     {
-      title: "Cryptography Stack",
+      title: "Cryptography Engine",
       status: "FULLY IMPLEMENTED",
       progress: 100,
       icon: Shield,
-      description: "Post-quantum algorithms with 70%+ compression efficiency",
-      features: ["SLH-DSA-SHA2-128f", "ML-DSA (Dilithium2)", "Hybrid engine", "Performance benchmarks"]
+      description: "Hybrid algorithm with 70% compression efficiency",
+      features: ["SLH-DSA-SHA2-128f, ML-DSA (Dilithium2)", "ECDSA, EdDSA, Schnorr", "Hybrid engine", "Performance benchmarks"]
     },
     {
-      title: "MEV Protection",
-      status: "INDUSTRY-LEADING",
+      title: "Native MEV Protection",
+      status: "FULLY IMPLEMENTED",
       progress: 100,
       icon: Zap,
-      description: "99%+ attack prevention with sophisticated testing",
-      features: ["Front-running protection", "VRF-based ordering", "Economic incentives", "Real-time metrics"]
+      description: "Qubex implements comprehensive MEV protection",
+      features: ["Front-running protection", "Sandwich attacks protection", "Timing manipulation", "Real-time metrics"]
     },
     {
-      title: "Multi-Chain Infrastructure",
+      title: "Multi-Chain Compatibility",
       status: "PRODUCTION-READY",
       progress: 100,
       icon: Network,
-      description: "Native Bitcoin & ICP integration without bridges",
-      features: ["Bitcoin vault", "ICP integration", "Smart routing", "Real-time sync"]
+      description: "Bitcoin & ICP integration",
+      features: ["Bitcoin integration", "ICP integration", "Real-time sync", "Coin engine"]
     },
     {
       title: "Transaction Processing",
