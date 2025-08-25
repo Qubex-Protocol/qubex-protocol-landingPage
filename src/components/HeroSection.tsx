@@ -41,7 +41,7 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/90 mb-4 max-w-4xl mx-auto leading-relaxed">
-          Production ready <span className="text-primary font-semibold">quantum-safe</span>, infrastructure on <span className="text-primary font-semibold">I</span>nternet <span className="text-primary font-semibold">C</span>omputer <span className="text-primary font-semibold">P</span>rotocol
+          <span className="text-primary font-semibold">Quantum-safe</span> protocol, ready for deployment on <span className="text-primary font-semibold">I</span>nternet <span className="text-primary font-semibold">C</span>omputer <span className="text-primary font-semibold">P</span>rotocol
         </p>
         
         <p className="text-lg text-foreground/70 dark:text-foreground/80 mb-12 max-w-3xl mx-auto">
