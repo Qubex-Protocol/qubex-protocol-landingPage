@@ -41,31 +41,33 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/90 mb-4 max-w-4xl mx-auto leading-relaxed">
-          The first <span className="text-primary font-semibold">post-quantum</span>, enterprise-grade Layer 2 on Internet Computer Protocol
+          <span className="text-primary font-semibold">Quantum-safe</span> protocol, ready for deployment on <span className="text-primary font-semibold">I</span>nternet <span className="text-primary font-semibold">C</span>omputer <span className="text-primary font-semibold">P</span>rotocol
         </p>
         
         <p className="text-lg text-foreground/70 dark:text-foreground/80 mb-12 max-w-3xl mx-auto">
-          Revolutionary multi-chain DeFi platform combining post-quantum cryptography, zero-knowledge capabilities, and intelligent transaction processing for the quantum computing era.
+          <span className="font-bold">Qubex</span> represents a paradigm shift in digital asset infrastructure, <span className="font-bold">delivering enterprise-grade quantum-resistant blockchain</span> solution. Built <span className="font-bold">with a sophisticated cryptography and multi-canister microservices architecture</span>, <span className="font-bold">Qubex solves the imminent quantum threat</span> while providing universal blockchain compatibility.
         </p>
         
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
           <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
             <Shield className="w-8 h-8 text-primary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Quantum-Ready</h3>
-            <p className="text-sm text-muted-foreground">NIST-approved post-quantum cryptography with hybrid compatibility</p>
+            <h3 className="text-lg font-semibold mb-2">Next-Gen Quantum-Resistance</h3>
+            <p className="text-sm text-muted-foreground"><span className="font-bold">Hybrid Cryptographic</span> protection that provides <span className="font-bold">immediate quantum resistance to protect wallet and transaction</span></p>
           </div>
           
           <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
             <Zap className="w-8 h-8 text-accent mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">MEV Protection</h3>
-            <p className="text-sm text-muted-foreground">Industry-leading protection with 99%+ attack prevention rate</p>
+            <h3 className="text-lg font-semibold mb-2">Native MEV Elimination System</h3>
+            
+            <p className="text-sm text-muted-foreground">Unpredictable transaction sequencing using Verifiable Random Functions, <span className="font-bold">Transactions details hidden until execution</span></p>
+            
           </div>
           
           <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
             <Network className="w-8 h-8 text-secondary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Multi-Chain</h3>
-            <p className="text-sm text-muted-foreground">Native Bitcoin & ICP integration without bridge risks</p>
+            <h3 className="text-lg font-semibold mb-2">Universal Blockchain Compatibility</h3>
+            <p className="text-sm text-muted-foreground"><span className="font-bold">No</span> traditional <span className="font-bold">bridge risks</span>, using <span className="font-bold">ICP Chain-Key technology</span>. Hybrid signatures protect cross-chain operations</p>
           </div>
         </div>
         
