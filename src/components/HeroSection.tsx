@@ -1,96 +1,156 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Play, Zap, Shield, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Shield, Zap, Network, Activity } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Navigation from "./Navigation";
 
 const HeroSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const stats = [
+    { value: "90%", label: "Private Bitcoin" },
+    { value: "256", label: "Transaction Pool" },
+    { value: "NIST", label: "Approved Crypto" },
+    { value: "5", label: "Specialized Canisters" }
+  ];
+
+  const features = [
+    { icon: <Shield className="h-6 w-6" />, text: "NIST-Approved" },
+    { icon: <Zap className="h-6 w-6" />, text: "zkSTARK Proofs" },
+    { icon: <Globe className="h-6 w-6" />, text: "Multi-Chain Native" }
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Theme Toggle */}
-      <div className="absolute top-2 right-5 z-20">
-        <ThemeToggle />
-      </div>
-      
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-20 dark:opacity-30 pointer-events-none">
-        <DotLottieReact
-          src="https://lottie.host/0149e876-1332-4071-9afe-95abc3b13ef5/jHuXHhF5ab.lottie"
-          loop
-          autoplay
-          className="w-500 h-full"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-      
-      {/* Quantum Grid Overlay */}
-      <div className="absolute inset-0 block dark:hidden bg-[linear-gradient(rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      <div className="absolute inset-0 hidden dark:block bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        {/* Status Badge */}
-        <Badge variant="outline" className="mb-8 mt-[7vh] px-6 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20 quantum-glow">
-          <Activity className="w-4 h-4 mr-2" />
-          Upcoming production • Quantum Secure
-        </Badge>
-        
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Qubex Protocol
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-foreground/80 dark:text-foreground/90 mb-4 max-w-4xl mx-auto leading-relaxed">
-          <span className="text-primary font-semibold">Quantum-safe</span> protocol, ready for deployment on <span className="text-primary font-semibold">I</span>nternet <span className="text-primary font-semibold">C</span>omputer <span className="text-primary font-semibold">P</span>rotocol
-        </p>
-        
-        <p className="text-lg text-foreground/70 dark:text-foreground/80 mb-12 max-w-3xl mx-auto">
-          <span className="font-bold">Qubex</span> represents a paradigm shift in digital asset infrastructure, <span className="font-bold">delivering enterprise-grade quantum-resistant blockchain</span> solution. Built <span className="font-bold">with a sophisticated cryptography and multi-canister microservices architecture</span>, <span className="font-bold">Qubex solves the imminent quantum threat</span> while providing universal blockchain compatibility.
-        </p>
-        
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-          <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
-            <Shield className="w-8 h-8 text-primary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Next-Gen Quantum-Resistance</h3>
-            <p className="text-sm text-muted-foreground"><span className="font-bold">Hybrid Cryptographic</span> protection that provides <span className="font-bold">immediate quantum resistance to protect wallet and transaction</span></p>
+    <>
+      <Navigation />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary-blue/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary-light))_0%,_transparent_50%)] opacity-20" />
+
+        {/* Animated Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(25,59,106,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(25,59,106,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+          <div className="text-center">
+            {/* Announcement Bar */}
+            <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-secondary/50 text-primary border border-primary/20 mb-8 backdrop-blur-sm">
+              <span className="flex h-2 w-2 rounded-full bg-secondary-blue mr-2">
+                <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-secondary-blue opacity-75"></span>
+              </span>
+              NIST-Approved • 90% Private Bitcoin Transactions
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-title font-bold text-foreground mb-6 leading-tight">
+              Perfect Bitcoin
+              <span className="block bg-gradient-to-r from-primary via-primary-light to-accent-primary bg-clip-text text-transparent">
+                Anonymity
+              </span>
+              with Ghost Stark
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-foreground/70 font-subtitle max-w-4xl mx-auto mb-12 leading-relaxed">
+              The world's first mathematically guaranteed anonymous Bitcoin transactions with
+              post-quantum cryptography. Privacy-first infrastructure built on quantum-safe foundations.
+            </p>
+
+            {/* Feature Badges */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-2 border border-primary/20 rounded-full px-4 py-2 text-sm font-body hover:border-primary/40 transition-colors"
+                >
+                  <div className="text-primary">{feature.icon}</div>
+                  <span className="text-foreground/80">{feature.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold group"
+              >
+                Launch App
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-8 py-4 text-lg font-semibold group"
+                onClick={() => setIsVideoPlaying(true)}
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Watch Demo
+              </Button>
+
+              <Link to="/waitlist">
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className="px-8 py-4 text-lg font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+                >
+                  Join Waitlist
+                </Button>
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl md:text-4xl font-title font-bold text-primary-light mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm md:text-base text-foreground/60 font-body">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
-            <Zap className="w-8 h-8 text-accent mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Native MEV Elimination System</h3>
-            
-            <p className="text-sm text-muted-foreground">Unpredictable transaction sequencing using Verifiable Random Functions, <span className="font-bold">Transactions details hidden until execution</span></p>
-            
-          </div>
-          
-          <div className="bg-card/70 dark:bg-card/30 backdrop-blur-sm border border-border/60 rounded-xl p-6 hover:bg-card/80 dark:hover:bg-card/40 shadow-md transition-all duration-300">
-            <Network className="w-8 h-8 text-secondary mb-4 mx-auto" />
-            <h3 className="text-lg font-semibold mb-2">Universal Blockchain Compatibility</h3>
-            <p className="text-sm text-muted-foreground"><span className="font-bold">No</span> traditional <span className="font-bold">bridge risks</span>, using <span className="font-bold">ICP Chain-Key technology</span>. Hybrid signatures protect cross-chain operations</p>
-          </div>
+
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 border border-primary/20 rounded-full animate-pulse" />
+          <div className="absolute top-40 right-10 w-16 h-16 border border-secondary-blue/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-20 left-20 w-12 h-12 border border-primary-light/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+
+          {/* Data Streams */}
+          <div className="absolute top-1/3 left-0 w-1 h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent opacity-60" />
+          <div className="absolute top-1/2 right-0 w-1 h-24 bg-gradient-to-b from-transparent via-secondary-blue/50 to-transparent opacity-60" />
         </div>
-        
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/WaitList">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground px-8 py-3 quantum-glow">
-              Launch Platform
-            </Button>
-          </a>
-          <a href="https://qubex-protocol.gitbook.io/qubex-protocol-docs/">
-            <Button variant="outline" size="lg" className="border-primary/40 text-primary hover:bg-primary/15 px-8 py-3">
-              View Documentation
-            </Button>
-          </a>
-        </div>
-      </div>
-      
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 border border-primary/20 rounded-full animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-16 h-16 border border-accent/20 rounded-full animate-pulse delay-1000" />
-      <div className="absolute top-1/2 left-0 w-1 h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent data-stream" />
-    </section>
+
+        {/* Video Modal */}
+        {isVideoPlaying && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsVideoPlaying(false)}
+          >
+            <div className="relative max-w-4xl w-full mx-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="absolute -top-12 right-0 text-white hover:bg-white/20"
+                onClick={() => setIsVideoPlaying(false)}
+              >
+                Close
+              </Button>
+              <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-white">
+                  <p className="text-xl">Demo Video Placeholder</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+    </>
   );
 };
 

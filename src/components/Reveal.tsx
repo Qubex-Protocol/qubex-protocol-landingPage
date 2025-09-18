@@ -33,7 +33,7 @@ export const Reveal = ({
 }: RevealProps) => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold, rootMargin, once });
 
-  const Tag = as as any;
+  const Tag = as as keyof JSX.IntrinsicElements;
 
   const axisClass = (() => {
     switch (direction) {
