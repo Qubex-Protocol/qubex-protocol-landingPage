@@ -42,7 +42,7 @@ const Navigation = () => {
                 alt="Qubex Protocol"
                 className="h-8 w-8"
               />
-              <span className="text-xl font-title font-bold text-primary">
+              <span className="text-xl font-title font-bold from-primary via-primary-light to-accent-primary bg-clip-text">
                 Qubex Protocol
               </span>
             </Link>
@@ -59,7 +59,7 @@ const Navigation = () => {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <span>{item.name}</span>
-                    {item.dropdown && <ChevronDown className="h-4 w-4" />}
+                    {item.dropdown && <ChevronDown className="h-4 w-4 text-foreground/60" />}
                   </button>
 
                   {/* Dropdown Menu */}
@@ -103,7 +103,7 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground/80 hover:text-primary p-2"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6 text-foreground/80" /> : <Menu className="h-6 w-6 text-foreground/80" />}
             </button>
           </div>
         </div>

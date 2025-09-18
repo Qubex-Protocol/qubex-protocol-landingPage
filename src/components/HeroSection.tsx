@@ -15,9 +15,9 @@ const HeroSection = () => {
   ];
 
   const features = [
-    { icon: <Shield className="h-6 w-6" />, text: "NIST-Approved" },
-    { icon: <Zap className="h-6 w-6" />, text: "zkSTARK Proofs" },
-    { icon: <Globe className="h-6 w-6" />, text: "Multi-Chain Native" }
+    { icon: <Shield className="h-6 w-6 text-accent-primary" />, text: "NIST-Approved" },
+    { icon: <Zap className="h-6 w-6 text-accent-primary" />, text: "zkSTARK Proofs" },
+    { icon: <Globe className="h-6 w-6 text-accent-primary" />, text: "Multi-Chain Native" }
   ];
 
   return (
@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
           <div className="text-center">
             {/* Announcement Bar */}
-            <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-secondary/50 text-primary border border-primary/20 mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-primary/90 text-white border border-primary-light/50 mb-8 backdrop-blur-md shadow-lg">
               <span className="flex h-2 w-2 rounded-full bg-secondary-blue mr-2">
                 <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-secondary-blue opacity-75"></span>
               </span>
@@ -45,7 +45,7 @@ const HeroSection = () => {
             {/* Main Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-title font-bold text-foreground mb-6 leading-tight">
               Perfect Bitcoin
-              <span className="block bg-gradient-to-r from-primary via-primary-light to-accent-primary bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent font-extrabold">
                 Anonymity
               </span>
               with Ghost Stark
@@ -77,24 +77,23 @@ const HeroSection = () => {
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold group"
               >
                 Launch App
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform text-white" />
               </Button>
 
               <Button
                 size="lg"
-                variant="outline"
-                className="px-8 py-4 text-lg font-semibold group"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold group"
                 onClick={() => setIsVideoPlaying(true)}
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-2 h-5 w-5 text-white" />
                 Watch Demo
               </Button>
 
               <Link to="/waitlist">
                 <Button
                   size="lg"
-                  variant="ghost"
-                  className="px-8 py-4 text-lg font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+                  variant="outline"
+                  className="px-8 py-4 text-lg font-semibold"
                 >
                   Join Waitlist
                 </Button>

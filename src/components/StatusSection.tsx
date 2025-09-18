@@ -109,7 +109,7 @@ const StatusSection = () => {
                   <div className="flex items-start justify-between mb-4">
                     <impl.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
                     <Badge className={getStatusColor(impl.status)}>
-                      {impl.progress === 100 ? <CheckCircle className="w-3 h-3 mr-1" /> : <Clock className="w-3 h-3 mr-1" />}
+                      {impl.progress === 100 ? <CheckCircle className="w-3 h-3 mr-1 text-green-500" /> : <Clock className="w-3 h-3 mr-1 text-accent-primary" />}
                       {impl.status}
                     </Badge>
                   </div>

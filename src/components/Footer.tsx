@@ -33,11 +33,11 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: "Discord", href: "https://discord.gg/2eSRu8EN", icon: <MessageCircle className="h-5 w-5" /> },
-    { name: "Twitter", href: "https://x.com/QubexProtocol", icon: <Twitter className="h-5 w-5" /> },
-    { name: "LinkedIn", href: "#", icon: <Linkedin className="h-5 w-5" /> },
-    { name: "YouTube", href: "#", icon: <Youtube className="h-5 w-5" /> },
-    { name: "Email", href: "mailto:team@qubexprotocol.com", icon: <Mail className="h-5 w-5" /> }
+    { name: "Discord", href: "https://discord.gg/2eSRu8EN", icon: <MessageCircle className="h-5 w-5 text-primary-light" /> },
+    { name: "Twitter", href: "https://x.com/QubexProtocol", icon: <Twitter className="h-5 w-5 text-primary-light" /> },
+    { name: "LinkedIn", href: "#", icon: <Linkedin className="h-5 w-5 text-primary-light" /> },
+    { name: "YouTube", href: "#", icon: <Youtube className="h-5 w-5 text-primary-light" /> },
+    { name: "Email", href: "mailto:team@qubexprotocol.com", icon: <Mail className="h-5 w-5 text-primary-light" /> }
   ];
 
   return (
@@ -56,7 +56,7 @@ const Footer = () => {
                   alt="Qubex Protocol"
                   className="h-8 w-8"
                 />
-                <span className="text-xl font-title font-bold text-primary">
+                <span className="text-xl font-title font-bold text-white">
                   Qubex Protocol
                 </span>
               </div>
@@ -112,7 +112,7 @@ const Footer = () => {
                 <Link to="/waitlist">
                   <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors group">
                     Join Waitlist
-                    <ArrowUpRight className="inline ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUpRight className="inline ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-white" />
                   </button>
                 </Link>
                 <button className="border border-border hover:border-primary/50 text-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
@@ -180,7 +180,7 @@ const Footer = () => {
                     >
                       {link.name}
                       {link.href.startsWith('http') && (
-                        <ArrowUpRight className="ml-1 h-3 w-3" />
+                        <ArrowUpRight className="ml-1 h-3 w-3 text-primary-light" />
                       )}
                     </a>
                   </li>
@@ -219,7 +219,7 @@ const Footer = () => {
 
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-sm text-foreground/60 font-body">
-                <Globe className="h-4 w-4" />
+                <Globe className="h-4 w-4 text-foreground/60" />
                 <span>Global</span>
               </div>
 

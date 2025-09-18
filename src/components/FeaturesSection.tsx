@@ -15,37 +15,37 @@ import ScrollAnimation from "./ScrollAnimation";
 const FeaturesSection = () => {
   const features = [
     {
-      icon: <Shield className="h-8 w-8" />,
+      icon: <Shield className="h-8 w-8 text-accent-primary" />,
       title: "Ghost Stark Privacy",
       description: "Perfect Bitcoin anonymity with 90% private transactions using zkSTARK proofs. Mathematically guaranteed privacy that survives quantum attacks.",
       gradient: "from-primary to-primary-light"
     },
     {
-      icon: <Lock className="h-8 w-8" />,
+      icon: <Lock className="h-8 w-8 text-accent-primary" />,
       title: "NIST-Approved Crypto",
       description: "Battle-tested ML-DSA & SLH-DSA implementations. Quantum safety as standard, not a feature - proven and enterprise-ready.",
       gradient: "from-secondary-blue to-primary-light"
     },
     {
-      icon: <Globe className="h-8 w-8" />,
+      icon: <Globe className="h-8 w-8 text-accent-primary" />,
       title: "Multi-Chain Native",
       description: "Bitcoin, ICP, ckBTC support without bridges. Cross-chain privacy that's virtually impossible elsewhere.",
       gradient: "from-secondary-dark to-secondary-blue"
     },
     {
-      icon: <Layers className="h-8 w-8" />,
+      icon: <Layers className="h-8 w-8 text-accent-primary" />,
       title: "Enterprise Architecture",
       description: "Microservices across 5 specialized canisters with high-performance transaction processing for institutional adoption.",
       gradient: "from-primary-light to-secondary-blue"
     },
     {
-      icon: <Database className="h-8 w-8" />,
+      icon: <Database className="h-8 w-8 text-accent-primary" />,
       title: "Anonymous Pool",
       description: "256 similar transactions cryptographically grouped with stealth addresses and smart fragmentation for perfect anonymity.",
       gradient: "from-primary to-secondary-dark"
     },
     {
-      icon: <Network className="h-8 w-8" />,
+      icon: <Network className="h-8 w-8 text-accent-primary" />,
       title: "Multi-Hop Routing",
       description: "Automated anonymous execution through routing HOPs with fund conservation and absolute security verification.",
       gradient: "from-secondary-blue to-primary"
@@ -54,22 +54,22 @@ const FeaturesSection = () => {
 
   const stats = [
     {
-      icon: <Shield className="h-6 w-6" />,
+      icon: <Shield className="h-6 w-6 text-accent-primary" />,
       value: "90%",
       label: "Bitcoin Privacy"
     },
     {
-      icon: <Database className="h-6 w-6" />,
+      icon: <Database className="h-6 w-6 text-accent-primary" />,
       value: "256",
       label: "Pool Size"
     },
     {
-      icon: <Lock className="h-6 w-6" />,
+      icon: <Lock className="h-6 w-6 text-accent-primary" />,
       value: "NIST",
       label: "Approved"
     },
     {
-      icon: <Network className="h-6 w-6" />,
+      icon: <Network className="h-6 w-6 text-accent-primary" />,
       value: "5",
       label: "Canisters"
     }
@@ -83,7 +83,7 @@ const FeaturesSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollAnimation className="text-center mb-20">
-          <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
+          <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-medium bg-primary/90 text-white border border-primary-light/50 mb-6 backdrop-blur-md shadow-lg">
             Ghost Stark Technology
           </div>
 
@@ -160,10 +160,16 @@ const FeaturesSection = () => {
             The quantum problem is solved. Privacy is the next frontier.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button
+              onClick={() => window.location.href = '#documentation'}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+            >
               Documentation
             </button>
-            <button className="border border-accent-primary/30 hover:border-accent-primary text-accent-primary hover:bg-accent-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button
+              onClick={() => window.open('https://discord.gg/2eSRu8EN', '_blank')}
+              className="border border-accent-primary/30 hover:border-accent-primary text-accent-primary hover:bg-accent-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+            >
               Join Discord
             </button>
           </div>

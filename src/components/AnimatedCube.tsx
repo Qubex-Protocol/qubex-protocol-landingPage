@@ -14,7 +14,7 @@ const AnimatedCube = () => {
 
   // Calculate opacity based on scroll position to hide in footer
   const footerStart = window.innerHeight * 2; // Approximate footer start
-  const opacity = scrollY > footerStart ? Math.max(0, 1 - (scrollY - footerStart) / 300) : 1;
+  const opacity = scrollY > footerStart ? Math.max(0, 1 - (scrollY - footerStart) / 50) : 1;
 
   return (
     <div

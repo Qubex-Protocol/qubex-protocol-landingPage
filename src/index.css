@@ -8,71 +8,71 @@
 
 @layer base {
   :root {
-    /* Primary Colors - Cyber Blue Palette */
-    --primary: 215 25% 27%;           /* #1E293B - Slate 800 */
-    --primary-light: 186 100% 42%;    /* #06B6D4 - Cyan 500 */
-    --primary-lighter: 0 0% 100%;     /* #FFFFFF */
-    --primary-dark: 215 25% 27%;      /* #1E293B */
+    /* Primary Colors - Dark Cyber Palette */
+    --primary: 215 25% 15%;           /* #0F172A - Much darker slate */
+    --primary-light: 186 100% 35%;    /* #0891B2 - Darker cyan */
+    --primary-lighter: 215 25% 25%;   /* #1E293B - Dark slate for lighter elements */
+    --primary-dark: 215 30% 8%;       /* #070B10 - Very dark */
 
-    /* Secondary Colors - Enhanced Palette */
-    --secondary: 220 13% 91%;         /* #E5E7EB */
-    --secondary-blue: 192 35% 55%;    /* #6EC1A6 */
-    --secondary-dark: 204 23% 29%;    /* #3C5A6B */
-    --secondary-accent: 0 0% 75%;     /* #C0C0C0 */
+    /* Secondary Colors - Dark Enhanced Palette */
+    --secondary: 220 13% 18%;         /* #282C34 - Dark gray */
+    --secondary-blue: 192 35% 35%;    /* #4A8B7A - Darker teal */
+    --secondary-dark: 204 23% 15%;    /* #1F2937 - Very dark blue-gray */
+    --secondary-accent: 0 0% 25%;     /* #404040 - Dark gray accent */
 
-    /* New Accent Color - Violet Tech */
-    --accent-primary: 249 58% 62%;    /* #8B5CF6 - Violet 500 */
-    --accent-light: 249 58% 72%;      /* Lighter violet */
-    --accent-dark: 249 58% 52%;       /* Darker violet */
+    /* New Accent Color - Dark Violet Tech */
+    --accent-primary: 249 58% 50%;    /* #7C3AED - Darker violet */
+    --accent-light: 249 58% 60%;      /* #8B5CF6 - Medium violet */
+    --accent-dark: 249 58% 40%;       /* #6D28D9 - Very dark violet */
 
-    /* Base System Colors */
-    --background: 0 0% 98%;
-    --foreground: 226 75% 22%;
-    --card: 0 0% 100%;
-    --card-foreground: 226 75% 22%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 226 75% 22%;
-    
-    /* Semantic Colors */
-    --primary-foreground: 0 0% 98%;
-    --secondary-foreground: 226 75% 22%;
-    --muted: 0 0% 95%;
-    --muted-foreground: 215 16% 58%;
-    --accent: 36 100% 63%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
-    /* UI Elements */
-    --border: 221 85% 89%;
-    --input: 0 0% 95%;
-    --ring: 222 83% 41%;
+    /* Base System Colors - Dark Theme */
+    --background: 215 30% 6%;         /* #060B11 - Very dark background */
+    --foreground: 215 25% 85%;        /* #CBD5E1 - Light foreground */
+    --card: 215 25% 12%;              /* #1A202C - Dark card */
+    --card-foreground: 215 25% 85%;   /* #CBD5E1 - Light text on cards */
+    --popover: 215 25% 10%;           /* #141B23 - Dark popover */
+    --popover-foreground: 215 25% 85%; /* #CBD5E1 - Light text */
+
+    /* Semantic Colors - Dark Theme */
+    --primary-foreground: 215 25% 90%; /* #E2E8F0 - Very light text */
+    --secondary-foreground: 215 25% 75%; /* #94A3B8 - Medium light text */
+    --muted: 215 25% 15%;             /* #1E293B - Dark muted */
+    --muted-foreground: 215 16% 45%;  /* #64748B - Medium gray text */
+    --accent: 249 58% 50%;            /* #7C3AED - Violet accent */
+    --accent-foreground: 215 25% 95%; /* #F8FAFC - Very light text */
+    --destructive: 0 84% 55%;         /* #DC2626 - Slightly darker red */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA - Light text */
+
+    /* UI Elements - Dark Theme */
+    --border: 215 25% 20%;            /* #334155 - Dark borders */
+    --input: 215 25% 12%;             /* #1A202C - Dark inputs */
+    --ring: 249 58% 50%;              /* #7C3AED - Violet ring */
 
     --radius: 0.75rem;
 
-    /* Modern Professional Gradients */
+    /* Modern Professional Gradients - Dark Theme */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-security: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)));
-    --gradient-accent: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--secondary-accent)));
-    
-    /* Professional Effects */
-    --shadow-soft: 0 2px 8px hsl(var(--primary) / 0.1);
-    --shadow-medium: 0 8px 32px hsl(var(--primary) / 0.15);
-    --shadow-strong: 0 16px 64px hsl(var(--primary) / 0.2);
-    
+    --gradient-accent: linear-gradient(45deg, hsl(var(--accent-primary)), hsl(var(--accent-light)));
+
+    /* Professional Effects - Dark Theme */
+    --shadow-soft: 0 2px 8px hsl(var(--primary-dark) / 0.3);
+    --shadow-medium: 0 8px 32px hsl(var(--primary-dark) / 0.4);
+    --shadow-strong: 0 16px 64px hsl(var(--primary-dark) / 0.5);
+
     /* Modern Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 226 75% 22%;
-    --sidebar-primary: 222 83% 41%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 226 75% 22%;
-    --sidebar-border: 221 85% 89%;
-    --sidebar-ring: 222 83% 41%;
+    /* Sidebar - Dark Theme */
+    --sidebar-background: 215 25% 8%;  /* #0E1419 - Very dark sidebar */
+    --sidebar-foreground: 215 25% 80%; /* #B8C5D1 - Light sidebar text */
+    --sidebar-primary: 249 58% 50%;    /* #7C3AED - Violet primary */
+    --sidebar-primary-foreground: 215 25% 95%; /* #F8FAFC - Very light text */
+    --sidebar-accent: 215 25% 15%;     /* #1E293B - Dark accent */
+    --sidebar-accent-foreground: 215 25% 75%; /* #94A3B8 - Medium light text */
+    --sidebar-border: 215 25% 18%;     /* #2D3748 - Dark border */
+    --sidebar-ring: 249 58% 50%;       /* #7C3AED - Violet ring */
   }
 
 }
@@ -84,10 +84,10 @@
 
   body {
     @apply bg-background text-foreground font-body;
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% 0%, hsl(var(--primary) / 0.08), transparent),
-      radial-gradient(ellipse 60% 40% at 0% 100%, hsl(var(--accent) / 0.05), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(var(--primary-light) / 0.05), transparent);
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, hsl(var(--primary-light) / 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 0% 100%, hsl(var(--accent-primary) / 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(var(--primary) / 0.1), transparent);
   }
 
   h1, h2, h3, h4, h5, h6 {

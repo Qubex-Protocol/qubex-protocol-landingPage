@@ -48,7 +48,7 @@ const ComparisonSection = () => {
       value ? 'bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400' :
               'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'
     }`}>
-      {value ? <Check className="w-4 h-4" /> : <X className="w-4 h-4" />}
+      {value ? <Check className="w-4 h-4 text-green-500" /> : <X className="w-4 h-4 text-red-500" />}
     </div>
   );
 
