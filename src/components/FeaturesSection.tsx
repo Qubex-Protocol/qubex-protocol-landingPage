@@ -78,7 +78,7 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="py-24 bg-background relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -154,6 +154,7 @@ const FeaturesSection = () => {
           ))}
         </div>
 
+
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <p className="text-lg text-foreground/70 font-body mb-6">
@@ -161,24 +162,23 @@ const FeaturesSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => window.location.href = '#documentation'}
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+              onClick={() => window.open('https://github.com/Qubex-Protocol', '_blank')}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Documentation
             </button>
             <button
               onClick={() => window.open('https://discord.gg/2eSRu8EN', '_blank')}
-              className="border border-accent-primary/30 hover:border-accent-primary text-accent-primary hover:bg-accent-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+              className="border border-accent-primary/30 hover:border-accent-primary text-accent-primary hover:bg-accent-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Join Discord
             </button>
           </div>
         </div>
       </div>
-
       {/* Floating Elements */}
-      <div className="absolute top-20 right-10 w-20 h-20 border border-primary/10 rounded-full animate-pulse" />
-      <div className="absolute bottom-20 left-10 w-16 h-16 border border-secondary-blue/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-20 right-10 w-20 h-20 border border-primary/10 rounded-full animate-pulse pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-16 h-16 border border-secondary-blue/10 rounded-full animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
     </section>
   );
 };
