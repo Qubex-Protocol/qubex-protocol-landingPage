@@ -22,7 +22,7 @@ const Footer = () => {
       { name: "Discord", href: "https://discord.gg/2eSRu8EN" },
       { name: "Twitter/X", href: "https://x.com/QubexProtocol" },
       { name: "Documentation", href: "#documentation" },
-      { name: "WCHL Hackathon", href: "#hackathon" }
+      { name: "WCHL Hackathon", href: "https://wchl25.worldcomputer.com/" }
     ],
     resources: [
       { name: "Privacy Research", href: "#research" },
@@ -36,8 +36,8 @@ const Footer = () => {
     { name: "Discord", href: "https://discord.gg/2eSRu8EN", icon: <MessageCircle className="h-5 w-5 text-primary-light" /> },
     { name: "Twitter", href: "https://x.com/QubexProtocol", icon: <Twitter className="h-5 w-5 text-primary-light" /> },
     { name: "LinkedIn", href: "#", icon: <Linkedin className="h-5 w-5 text-primary-light" /> },
-    { name: "YouTube", href: "#", icon: <Youtube className="h-5 w-5 text-primary-light" /> },
-    { name: "Email", href: "mailto:team@qubexprotocol.com", icon: <Mail className="h-5 w-5 text-primary-light" /> }
+    { name: "YouTube", href: "https://www.youtube.com/@QubexProtocol", icon: <Youtube className="h-5 w-5 text-primary-light" /> },
+    { name: "Email", href: "mailto:qubexprotocol@gmail.com", icon: <Mail className="h-5 w-5 text-primary-light" /> }
   ];
 
   return (
