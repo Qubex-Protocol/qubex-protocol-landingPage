@@ -65,7 +65,7 @@ const Navigation = () => {
                   {/* Dropdown Menu */}
                   {item.dropdown && activeDropdown === item.name && (
                     <div
-                      className="absolute top-full left-0 mt-1 w-48 bg-background border border-border rounded-lg shadow-lg py-2"
+                      className="absolute top-full left-0 w-48 bg-background border border-border rounded-lg shadow-lg py-2"
                       onMouseEnter={() => setActiveDropdown(item.name)}
                       onMouseLeave={() => setActiveDropdown(null)}
                     >
