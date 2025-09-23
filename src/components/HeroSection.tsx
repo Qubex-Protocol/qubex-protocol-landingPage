@@ -141,9 +141,14 @@ const HeroSection = () => {
                 Close
               </Button>
               <div className="aspect-video bg-black rounded-lg overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-white">
-                  <p className="text-xl">Demo Video Placeholder</p>
-                </div>
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/N3yEALPCjKY"
+                  title="Demo Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
           </div>
