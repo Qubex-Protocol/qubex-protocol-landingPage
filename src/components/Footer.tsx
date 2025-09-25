@@ -54,7 +54,7 @@ const Footer = () => {
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <img
-                  src="/src/assets/logo.png"
+                  src="/assets/logo.png"
                   alt="Qubex Protocol"
                   className="h-8 w-8"
                 />
