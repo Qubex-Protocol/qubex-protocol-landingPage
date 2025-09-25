@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navItems = [
     {
@@ -70,13 +71,17 @@ const Navigation = () => {
                       onMouseLeave={() => setActiveDropdown(null)}
                     >
                       {item.dropdown.map((dropItem) => (
-                        <a
+                        <div
                           key={dropItem.name}
-                          href={dropItem.href}
-                          className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-colors"
+                          className="relative flex items-center justify-between px-4 py-2 text-sm text-foreground/40 cursor-not-allowed group"
+                          onMouseEnter={() => setHoveredItem(dropItem.name)}
+                          onMouseLeave={() => setHoveredItem(null)}
                         >
-                          {dropItem.name}
-                        </a>
+                          <span>{dropItem.name}</span>
+                          {hoveredItem === dropItem.name && (
+                            <Ban className="h-4 w-4 text-red-500 ml-2" />
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}

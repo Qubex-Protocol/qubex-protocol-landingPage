@@ -74,7 +74,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold group"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold group text-foreground/40 cursor-not-allowed"
               >
                 Launch App
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform text-white" />

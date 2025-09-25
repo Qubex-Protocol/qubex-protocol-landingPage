@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Twitter, Linkedin, Mail, Globe, ArrowUpRight, Youtube } from "lucide-react";
+import { MessageCircle, Twitter, Linkedin, Mail, Globe, ArrowUpRight, Youtube, Ban } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const footerLinks = {
     technology: [
@@ -35,7 +37,7 @@ const Footer = () => {
   const socialLinks = [
     { name: "Discord", href: "https://discord.gg/2eSRu8EN", icon: <MessageCircle className="h-5 w-5 text-primary-light" /> },
     { name: "Twitter", href: "https://x.com/QubexProtocol", icon: <Twitter className="h-5 w-5 text-primary-light" /> },
-    { name: "LinkedIn", href: "#", icon: <Linkedin className="h-5 w-5 text-primary-light" /> },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/qubex-protocl/", icon: <Linkedin className="h-5 w-5 text-primary-light" /> },
     { name: "YouTube", href: "https://www.youtube.com/@QubexProtocol", icon: <Youtube className="h-5 w-5 text-primary-light" /> },
     { name: "Email", href: "mailto:qubexprotocol@gmail.com", icon: <Mail className="h-5 w-5 text-primary-light" /> }
   ];
@@ -134,12 +136,16 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.technology.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-foreground/60 hover:text-primary transition-colors font-body"
+                    <div
+                      className="flex items-center justify-between text-foreground/40 cursor-not-allowed font-body group"
+                      onMouseEnter={() => setHoveredItem(link.name)}
+                      onMouseLeave={() => setHoveredItem(null)}
                     >
-                      {link.name}
-                    </a>
+                      <span>{link.name}</span>
+                      {hoveredItem === link.name && (
+                        <Ban className="h-4 w-4 text-red-500 ml-2" />
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -153,12 +159,16 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.features.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-foreground/60 hover:text-primary transition-colors font-body"
+                    <div
+                      className="flex items-center justify-between text-foreground/40 cursor-not-allowed font-body group"
+                      onMouseEnter={() => setHoveredItem(link.name)}
+                      onMouseLeave={() => setHoveredItem(null)}
                     >
-                      {link.name}
-                    </a>
+                      <span>{link.name}</span>
+                      {hoveredItem === link.name && (
+                        <Ban className="h-4 w-4 text-red-500 ml-2" />
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -196,12 +206,16 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-foreground/60 hover:text-primary transition-colors font-body"
+                    <div
+                      className="flex items-center justify-between text-foreground/40 cursor-not-allowed font-body group"
+                      onMouseEnter={() => setHoveredItem(link.name)}
+                      onMouseLeave={() => setHoveredItem(null)}
                     >
-                      {link.name}
-                    </a>
+                      <span>{link.name}</span>
+                      {hoveredItem === link.name && (
+                        <Ban className="h-4 w-4 text-red-500 ml-2" />
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>
