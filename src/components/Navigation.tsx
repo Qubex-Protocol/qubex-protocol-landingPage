@@ -27,8 +27,8 @@ const Navigation = () => {
         { name: "Enterprise Architecture", href: "#enterprise" }
       ]
     },
-    { name: "Community", href: "#community" },
-    { name: "Documentation", href: "#documentation" }
+    { name: "Community", href: "https://discord.gg/khjM74KbT4" },
+    { name: "Documentation", href: "https://qubex-protocol.gitbook.io/qubex-protocol-docs/" }
   ];
 
   return (
@@ -54,14 +54,25 @@ const Navigation = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
-                  <button
-                    className="text-foreground/80 hover:text-primary px-3 py-2 text-sm font-body font-medium transition-colors flex items-center space-x-1"
-                    onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <span>{item.name}</span>
-                    {item.dropdown && <ChevronDown className="h-4 w-4 text-foreground/60" />}
-                  </button>
+                  {item.dropdown ? (
+                    <button
+                      className="text-foreground/80 hover:text-primary px-3 py-2 text-sm font-body font-medium transition-colors flex items-center space-x-1"
+                      onMouseEnter={() => setActiveDropdown(item.name)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <span>{item.name}</span>
+                      <ChevronDown className="h-4 w-4 text-foreground/60" />
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-foreground/80 hover:text-primary px-3 py-2 text-sm font-body font-medium transition-colors flex items-center space-x-1"
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                      <span>{item.name}</span>
+                    </a>
+                  )}
 
                   {/* Dropdown Menu */}
                   {item.dropdown && activeDropdown === item.name && (
@@ -97,9 +108,11 @@ const Navigation = () => {
                 Join Waitlist
               </Button>
             </Link>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              Documentation
-            </Button>
+            <a href="https://qubex-protocol.gitbook.io/qubex-protocol-docs/">
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
+                Documentation
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -149,9 +162,11 @@ const Navigation = () => {
                   Join Waitlist
                 </Button>
               </Link>
-              <Button size="sm" className="w-full bg-primary hover:bg-primary/90">
-                Documentation
-              </Button>
+              <a href="https://qubex-protocol.gitbook.io/qubex-protocol-docs/">
+                <Button size="sm" className="w-full bg-primary hover:bg-primary/90">
+                  Documentation
+                </Button>
+              </a>
             </div>
           </div>
         </div>

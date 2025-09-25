@@ -21,9 +21,9 @@ const Footer = () => {
       { name: "Multi-Hop Routing", href: "#routing" }
     ],
     community: [
-      { name: "Discord", href: "https://discord.gg/2eSRu8EN" },
+      { name: "Discord", href: "https://discord.gg/khjM74KbT4" },
       { name: "Twitter/X", href: "https://x.com/QubexProtocol" },
-      { name: "Documentation", href: "#documentation" },
+      { name: "Documentation", href: "https://qubex-protocol.gitbook.io/qubex-protocol-docs/" },
       { name: "WCHL Hackathon", href: "https://wchl25.worldcomputer.com/" }
     ],
     resources: [
@@ -35,7 +35,7 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: "Discord", href: "https://discord.gg/2eSRu8EN", icon: <MessageCircle className="h-5 w-5 text-primary-light" /> },
+    { name: "Discord", href: "https://discord.gg/khjM74KbT4", icon: <MessageCircle className="h-5 w-5 text-primary-light" /> },
     { name: "Twitter", href: "https://x.com/QubexProtocol", icon: <Twitter className="h-5 w-5 text-primary-light" /> },
     { name: "LinkedIn", href: "https://www.linkedin.com/company/qubex-protocl/", icon: <Linkedin className="h-5 w-5 text-primary-light" /> },
     { name: "YouTube", href: "https://www.youtube.com/@QubexProtocol", icon: <Youtube className="h-5 w-5 text-primary-light" /> },
@@ -117,9 +117,11 @@ const Footer = () => {
                     <ArrowUpRight className="inline ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-white" />
                   </button>
                 </Link>
-                <button className="border border-border hover:border-primary/50 text-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
-                  Documentation
-                </button>
+                <a href="https://qubex-protocol.gitbook.io/qubex-protocol-docs/">
+                  <button className="border border-border hover:border-primary/50 text-foreground px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Documentation
+                  </button>
+                </a>
               </div>
             </div>
             </div>

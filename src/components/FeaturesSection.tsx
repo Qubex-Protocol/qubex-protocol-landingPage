@@ -168,7 +168,7 @@ const FeaturesSection = () => {
               Documentation
             </button>
             <button
-              onClick={() => window.open('https://discord.gg/2eSRu8EN', '_blank')}
+              onClick={() => window.open('https://discord.gg/khjM74KbT4', '_blank')}
               className="border border-accent-primary/30 hover:border-accent-primary text-accent-primary hover:bg-accent-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Join Discord
