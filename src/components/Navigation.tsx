@@ -39,7 +39,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2">
               <img
-                src="/src/assets/logo.png"
+                src="/assets/logo.png"
                 alt="Qubex Protocol"
                 className="h-8 w-8"
               />
